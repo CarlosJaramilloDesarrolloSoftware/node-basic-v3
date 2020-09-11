@@ -18,7 +18,7 @@ TaskModel.add = (task) => {
 }
 
 TaskModel.findAll = () => {
-    return TaskModel.tasks
+    return TaskModel.tasks;
 }
 
 TaskModel.findById = (id) => {

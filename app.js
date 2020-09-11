@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 app.get('/', (req, res) => {
     res.send('<h1>Index de NODEX</h1>');
-})
+});
 
 app.get('/task', (req, res) => {
     //res.send('<h1>Soy en Index de las tareas</h1>')
@@ -17,7 +17,7 @@ app.get('/task', (req, res) => {
         'data': TaskModel.findAll(),
         'msg': ''
     });
-})
+});
 
 app.get('/task/:id', (req, response) => {
     //res.send('<h3>Soy el VIEW de la tarea específica</h3><h1>' + req.params.id + "</h1>")
@@ -35,21 +35,20 @@ app.get('/task/:id', (req, response) => {
             'msg': 'Model not found'
         });
     }
-    
-})
+});
 
 app.post('/task', (req, res) => {
     console.log(req.body.title)
     res.send(req.body)
     // let task = new Task();
-})
+});
 
 app.delete('/task/:id', (req, res) => {
     //res.send('<h3>Soy el DELETE de la tarea específica</h3><h1>' + req.params.id + "</h1>")
     let deleted = TaskModel.deleteById(req.params.id);
     res.send("Res:" + deleted)
-})
+});
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
-})
+});
